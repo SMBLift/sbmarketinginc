@@ -1,0 +1,39 @@
+@font-face {
+	font-family: 'Metropolis';
+	src:url('fonts/metropolis/Webfonts/EOT/Metropolis-Regular.eot');
+	src:url('fonts/metropolis/Webfonts/EOT/Metropolis-Regular.eot?#iefix') format('embedded-opentype'),
+		url('fonts/metropolis/Webfonts/WOFF/Metropolis-Regular.woff') format('woff'),
+		url('fonts/metropolis/TrueType/Metropolis-Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Metropolis';
+	src:url('fonts/metropolis/Webfonts/EOT/Metropolis-Medium.eot');
+	src:url('fonts/metropolis/Webfonts/EOT/Metropolis-Medium.eot?#iefix') format('embedded-opentype'),
+		url('fonts/metropolis/Webfonts/WOFF/Metropolis-Medium.woff') format('woff'),
+		url('fonts/metropolis/TrueType/Metropolis-Medium.ttf') format('truetype');
+	font-weight: 500;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Metropolis';
+	src:url('fonts/metropolis/Webfonts/EOT/Metropolis-SemiBold.eot');
+	src:url('fonts/metropolis/Webfonts/EOT/Metropolis-SemiBold.eot?#iefix') format('embedded-opentype'),
+		url('fonts/metropolis/Webfonts/WOFF/Metropolis-SemiBold.woff') format('woff'),
+		url('fonts/metropolis/TrueType/Metropolis-SemiBold.ttf') format('truetype');
+	font-weight: 600;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Metropolis';
+	src:url('fonts/metropolis/Webfonts/EOT/Metropolis-Bold.eot');
+	src:url('fonts/metropolis/Webfonts/EOT/Metropolis-Bold.eot?#iefix') format('embedded-opentype'),
+		url('fonts/metropolis/Webfonts/WOFF/Metropolis-Bold.woff') format('woff'),
+		url('fonts/metropolis/TrueType/Metropolis-Bold.ttf') format('truetype');
+	font-weight: 700;
+	font-style: normal;
+}

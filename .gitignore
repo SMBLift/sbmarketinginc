@@ -1,0 +1,6 @@
+# Source data stays local only: contains SFTP credentials (.env), the full
+# WordPress DB dump (mysql.sql), the WP export, reference screenshots, and
+# the uploads mirror. None of it belongs in the deployed repo.
+source/
+
+.DS_Store
