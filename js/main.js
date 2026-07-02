@@ -78,47 +78,47 @@
   els.forEach((el) => io.observe(el));
 })();
 
-// ----- contact / info form -> Cloudflare Worker (Brevo) -----
+// ----- lead forms -> Cloudflare Worker (Brevo) — supports multiple per page -----
 (function () {
-  const form = document.getElementById('contact-form');
-  if (!form) return;
-  const ts = document.getElementById('form-timestamp');
-  if (ts) ts.value = Date.now();
+  document.querySelectorAll('form[data-worker]').forEach((form) => {
+    const ts = form.querySelector('[name="_timestamp"]');
+    if (ts) ts.value = Date.now();
 
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const data = Object.fromEntries(new FormData(form));
-    if (data._honeypot) return;
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(form));
+      if (data._honeypot) return;
 
-    const btn = form.querySelector('button[type="submit"]');
-    const original = btn.textContent;
-    btn.disabled = true;
-    btn.textContent = 'Sending...';
+      const btn = form.querySelector('button[type="submit"]');
+      const original = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
 
-    try {
-      const res = await fetch(form.dataset.worker || 'WORKER_URL', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-      });
-      if (!res.ok) throw new Error('Submission failed');
-      form.reset();
-      if (ts) ts.value = Date.now();
-      const msg = document.getElementById('form-success');
-      if (msg) {
-        msg.classList.remove('hidden');
-        msg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      try {
+        const res = await fetch(form.dataset.worker || 'WORKER_URL', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+        if (!res.ok) throw new Error('Submission failed');
+        form.reset();
+        if (ts) ts.value = Date.now();
+        const msg = form.querySelector('[role="status"]');
+        if (msg) {
+          msg.classList.remove('hidden');
+          msg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        if (window.history && history.replaceState) {
+          history.replaceState(null, '', window.location.pathname);
+        }
+      } catch (err) {
+        const errBox = form.querySelector('[role="alert"]');
+        if (errBox) errBox.classList.remove('hidden');
+        else alert('Something went wrong. Please call us at (412) 885-0404.');
+      } finally {
+        btn.disabled = false;
+        btn.textContent = original;
       }
-      if (window.history && history.replaceState) {
-        history.replaceState(null, '', window.location.pathname);
-      }
-    } catch (err) {
-      const errBox = document.getElementById('form-error');
-      if (errBox) errBox.classList.remove('hidden');
-      else alert('Something went wrong. Please call us at (412) 885-0404.');
-    } finally {
-      btn.disabled = false;
-      btn.textContent = original;
-    }
+    });
   });
 })();

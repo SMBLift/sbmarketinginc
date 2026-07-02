@@ -469,10 +469,45 @@
       </div>
     </section>
 
-    <!-- ===== World map band (decorative) ===== -->
-    <section class="relative h-[560px] lg:h-[940px]" aria-hidden="true">
-      <div class="absolute inset-0 bg-cover bg-center" style="background-image:url('/images/world_lasers_720_4-jpg.webp')"></div>
-      <div class="absolute inset-0" style="background:linear-gradient(180deg, rgba(141,162,179,0.55) 0%, rgba(32,80,133,0.78) 55%, rgba(29,43,54,0.92) 100%)"></div>
+    <!-- ===== Free marketing review (form on world-map band) ===== -->
+    <section class="relative py-16 lg:py-24" aria-labelledby="review-heading">
+      <div class="absolute inset-0 bg-cover bg-center" style="background-image:url('/images/world_lasers_720_4-jpg.webp')" aria-hidden="true"></div>
+      <div class="absolute inset-0" style="background:linear-gradient(180deg, rgba(141,162,179,0.55) 0%, rgba(32,80,133,0.78) 55%, rgba(29,43,54,0.92) 100%)" aria-hidden="true"></div>
+      <div class="relative max-w-[1200px] mx-auto px-4 lg:px-6">
+        <div class="max-w-[760px] mx-auto bg-white rounded-2xl shadow-[0_24px_60px_rgba(29,43,54,0.35)] px-6 py-10 lg:px-14 lg:py-14">
+          <h2 id="review-heading" class="text-center font-metro font-semibold text-[26px] lg:text-[34px] leading-tight text-ink">Ready To Reach Your Audience &amp; Grow Your Sales?</h2>
+          <p class="mt-4 text-center font-lato font-bold text-[16px] lg:text-[18px] text-steel">Contact us today for a free marketing review!</p>
+          <form class="mt-8 space-y-4" data-worker="WORKER_URL">
+            <input type="hidden" name="_client" value="sb-marketing">
+            <input type="hidden" name="_timestamp">
+            <input type="text" name="_honeypot" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <div>
+              <label for="r-name" class="sr-only">Name</label>
+              <input id="r-name" name="name" type="text" autocomplete="name" placeholder="Name" class="w-full border border-fog rounded-md px-4 py-3 text-[15px] placeholder:text-slate2/70 focus:ring-2 focus:ring-steel focus:border-steel outline-none">
+            </div>
+            <div>
+              <label for="r-company" class="sr-only">Company</label>
+              <input id="r-company" name="company" type="text" autocomplete="organization" placeholder="Company" class="w-full border border-fog rounded-md px-4 py-3 text-[15px] placeholder:text-slate2/70 focus:ring-2 focus:ring-steel focus:border-steel outline-none">
+            </div>
+            <div>
+              <label for="r-email" class="sr-only">Email <span class="sr-only">required</span></label>
+              <input id="r-email" name="email" type="email" required aria-required="true" autocomplete="email" placeholder="Email*" class="w-full border border-fog rounded-md px-4 py-3 text-[15px] placeholder:text-slate2/70 focus:ring-2 focus:ring-steel focus:border-steel outline-none">
+            </div>
+            <div>
+              <label for="r-phone" class="sr-only">Phone <span class="sr-only">required</span></label>
+              <input id="r-phone" name="phone" type="tel" required aria-required="true" autocomplete="tel" pattern="[0-9()\-\s+]{7,15}" placeholder="Phone*" class="w-full border border-fog rounded-md px-4 py-3 text-[15px] placeholder:text-slate2/70 focus:ring-2 focus:ring-steel focus:border-steel outline-none">
+            </div>
+            <div>
+              <label for="r-website" class="sr-only">Website</label>
+              <input id="r-website" name="website" type="text" autocomplete="url" placeholder="Website" class="w-full border border-fog rounded-md px-4 py-3 text-[15px] placeholder:text-slate2/70 focus:ring-2 focus:ring-steel focus:border-steel outline-none">
+            </div>
+            <div class="cf-turnstile" data-sitekey="TURNSTILE_SITE_KEY" data-theme="light"></div>
+            <button type="submit" class="btn-steel w-full text-white font-lato font-semibold uppercase text-[14px] rounded-md py-3.5 tracking-[1.5px]">Send Message</button>
+            <p class="hidden text-center text-[14px] font-semibold text-steel" role="status" aria-live="polite">Thank you! We received your information and will reach out shortly.</p>
+            <p class="hidden text-center text-[14px] font-semibold text-red-700" role="alert">Something went wrong. Please call us at <a href="tel:+14128850404" class="underline">(412) 885-0404</a>.</p>
+          </form>
+        </div>
+      </div>
     </section>
 
   </main>
