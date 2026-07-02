@@ -100,7 +100,7 @@
         <a href="/about/" class="nav-link font-lato text-[14px] font-bold uppercase text-graytx hover:text-navy transition-colors duration-200">About Us</a>
         <a href="/blog/" class="nav-link font-lato text-[14px] font-bold uppercase text-graytx hover:text-navy transition-colors duration-200">Blog</a>
         <a href="/faq/" class="nav-link font-lato text-[14px] font-bold uppercase text-graytx hover:text-navy transition-colors duration-200">FAQ</a>
-        <a href="/contact/" class="btn-navy font-lato text-[14px] font-bold uppercase bg-navy text-white rounded-full px-6 py-2.5">Contact Us</a>
+        <a href="/contact/" class="btn-gray font-lato text-[15px] font-medium uppercase text-white rounded-full px-6 py-3">Contact Us</a>
       </nav>
       <span class="lg:hidden w-11" aria-hidden="true"></span>
     </div>
@@ -117,10 +117,10 @@
         <a href="/who-we-work-with/" class="font-lato font-bold uppercase text-[14px] text-graytx px-3 py-3 rounded hover:bg-fog/60 hover:text-navy">Who We Work With</a>
         <a href="/services/" class="font-lato font-bold uppercase text-[14px] text-graytx px-3 py-3 rounded hover:bg-fog/60 hover:text-navy">Services</a>
         <a href="/crm/" class="font-lato font-bold uppercase text-[14px] text-graytx px-3 py-3 rounded hover:bg-fog/60 hover:text-navy">CRM</a>
-        <a href="/blog/" class="font-lato font-bold uppercase text-[14px] text-graytx px-3 py-3 rounded hover:bg-fog/60 hover:text-navy">Blog</a>
         <a href="/about/" class="font-lato font-bold uppercase text-[14px] text-graytx px-3 py-3 rounded hover:bg-fog/60 hover:text-navy">About Us</a>
+        <a href="/blog/" class="font-lato font-bold uppercase text-[14px] text-graytx px-3 py-3 rounded hover:bg-fog/60 hover:text-navy">Blog</a>
         <a href="/faq/" class="font-lato font-bold uppercase text-[14px] text-graytx px-3 py-3 rounded hover:bg-fog/60 hover:text-navy">FAQ</a>
-        <a href="/contact/" class="btn-navy font-lato font-bold uppercase text-[14px] bg-navy text-white rounded-full px-6 py-3 text-center mt-3">Contact Us</a>
+        <a href="/contact/" class="btn-gray font-lato font-medium uppercase text-[15px] text-white rounded-full px-6 py-3 text-center mt-3">Contact Us</a>
       </div>
     </nav>
   </header>
@@ -130,11 +130,12 @@
     <!-- ===== Hero ===== -->
     <section class="relative" aria-label="Intro">
       <div class="absolute inset-0 bg-cover bg-center" style="background-image:url('/images/laser_skyline_420_4-1.jpg')" role="img" aria-label="Pittsburgh skyline in blue tones"></div>
+      <div class="hero-overlay absolute inset-0" aria-hidden="true"></div>
       <div class="relative max-w-[1200px] mx-auto px-4 lg:px-6">
-        <!-- desktop: navy box, white text -->
+        <!-- desktop: frosted white box, steel text -->
         <div class="hidden lg:flex items-center min-h-[460px]">
-          <div class="bg-navy px-12 py-14 max-w-[560px]">
-            <h1 class="text-white font-metro font-medium text-[42px] leading-[1.15] tracking-[-2.6px]">The right marketing plan starts with a proactive approach.</h1>
+          <div class="hero-box rounded-2xl px-12 py-14 max-w-[560px]">
+            <h1 class="font-metro font-medium text-[42px] leading-[1.15] tracking-[-2.6px]">The right marketing plan starts with a proactive approach.</h1>
           </div>
         </div>
         <!-- mobile: frosted white box, steel text -->
@@ -190,7 +191,7 @@
             </div>
             <div class="px-6 py-6">
               <p class="text-center text-[14px] text-slate2">Want more information?</p>
-              <form id="contact-form" class="mt-4 space-y-4" novalidate data-worker="WORKER_URL">
+              <form id="contact-form" class="mt-4 space-y-4" data-worker="WORKER_URL">
                 <input type="hidden" name="_client" value="sb-marketing">
                 <input type="hidden" name="_timestamp" id="form-timestamp">
                 <input type="text" name="_honeypot" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
@@ -211,7 +212,7 @@
                   <input id="f-website" name="website" type="text" autocomplete="url" placeholder="Website" class="w-full border border-fog rounded-md px-4 py-3 text-[15px] placeholder:text-slate2/70 focus:ring-2 focus:ring-steel focus:border-steel outline-none">
                 </div>
                 <div class="cf-turnstile" data-sitekey="TURNSTILE_SITE_KEY" data-theme="light"></div>
-                <button type="submit" class="btn-navy w-full bg-navy text-white font-lato font-bold uppercase text-[14px] rounded-md py-3.5">Submit</button>
+                <button type="submit" class="btn-steel w-full text-white font-lato font-semibold uppercase text-[14px] rounded-md py-3.5 tracking-[1.5px]">Submit</button>
                 <p id="form-success" class="hidden text-center text-[14px] font-semibold text-navy" role="status" aria-live="polite">Thank you! We received your information and will reach out shortly.</p>
                 <p id="form-error" class="hidden text-center text-[14px] font-semibold text-red-700" role="alert">Something went wrong. Please call us at <a href="tel:+14128850404" class="underline">(412) 885-0404</a>.</p>
               </form>
@@ -302,7 +303,7 @@
             <li class="flex items-center gap-3 text-[15px] text-bodytx"><svg aria-hidden="true" class="shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#263270" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Performance Transparency</li>
             <li class="flex items-center gap-3 text-[15px] text-bodytx"><svg aria-hidden="true" class="shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#263270" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Detailed Reporting</li>
           </ul>
-          <a href="/services/" class="btn-navy inline-block mt-9 bg-navy text-white font-lato font-bold uppercase text-[13px] tracking-wide rounded-full px-8 py-3.5">More Details</a>
+          <a href="/services/" class="btn-steel inline-block mt-9 text-white font-lato font-semibold uppercase text-[14px] tracking-[1.5px] rounded-full px-10 py-3.5">More Details</a>
         </div>
         <div class="grid sm:grid-cols-2 gap-6">
           <div class="card-lift bg-white rounded-lg shadow-card px-6 py-10 text-center">
@@ -352,7 +353,7 @@
             <li class="flex items-center gap-3 text-[15px] text-bodytx"><svg aria-hidden="true" class="shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#263270" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Popular Integrations &amp; Payments</li>
             <li class="flex items-center gap-3 text-[15px] text-bodytx"><svg aria-hidden="true" class="shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#263270" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Appointments &amp; Tasks</li>
           </ul>
-          <a href="/crm/" class="btn-navy inline-block mt-9 bg-navy text-white font-lato font-bold uppercase text-[13px] tracking-wide rounded-full px-8 py-3.5">More Details</a>
+          <a href="/crm/" class="btn-steel inline-block mt-9 text-white font-lato font-semibold uppercase text-[14px] tracking-[1.5px] rounded-full px-10 py-3.5">More Details</a>
         </div>
       </div>
     </section>

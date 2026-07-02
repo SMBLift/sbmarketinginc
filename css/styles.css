@@ -75,6 +75,42 @@ html {
 .btn-navy:active {
   transform: translateY(1px);
 }
+/* primary CTA — steel blue, matches live #205085 */
+.btn-steel {
+  background-color: #205085;
+  transition: background-color 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.btn-steel:hover {
+  background-color: #18446f;
+}
+.btn-steel:active {
+  transform: translateY(1px);
+}
+/* nav CTA — gray, matches live #717171 */
+.btn-gray {
+  background-color: #717171;
+  transition: background-color 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.btn-gray:hover {
+  background-color: #5f5f5f;
+}
+.btn-gray:active {
+  transform: translateY(1px);
+}
+
+/* hero (plain CSS so it paints before the Tailwind CDN runs — no flash on reload) */
+.hero-overlay {
+  background-image: linear-gradient(180deg, #205085 0%, rgba(67, 95, 126, 0.02) 100%);
+}
+.hero-box {
+  background: rgba(255, 255, 255, 0.86);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+.hero-box h1,
+.hero-box p {
+  color: #205085;
+}
 
 /* card hover lift (blog cards, capability cards) */
 .card-lift {
