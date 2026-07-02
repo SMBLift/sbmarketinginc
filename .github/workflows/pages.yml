@@ -1,0 +1,70 @@
+name: Deploy preview to GitHub Pages
+
+# Publishes a preview of the site to https://smblift.github.io/sbmarketinginc/
+# GitHub Pages project sites serve from a /sbmarketinginc/ subpath, but the repo
+# uses root-absolute paths (/css, /images, /about/) for the real domain. This
+# workflow rewrites those paths into a throwaway _site copy at deploy time, so
+# main stays correct for the eventual sbmarketinginc.com deployment.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Assemble _site with subpath-rewritten paths
+        run: |
+          python3 - <<'PY'
+          import re, shutil, pathlib
+          BASE = '/sbmarketinginc'
+          SRC = pathlib.Path('.')
+          OUT = pathlib.Path('_site')
+          if OUT.exists(): shutil.rmtree(OUT)
+          EXCLUDE = {'.git', '.github', 'node_modules', 'source', '_site'}
+          href_src = re.compile(r'(href|src)="/(?!/)')
+          css_url  = re.compile(r'url\((["\']?)/(?!/)')
+          for p in SRC.rglob('*'):
+              parts = p.relative_to(SRC).parts
+              if parts and parts[0] in EXCLUDE:
+                  continue
+              dst = OUT / p.relative_to(SRC)
+              if p.is_dir():
+                  dst.mkdir(parents=True, exist_ok=True)
+                  continue
+              dst.parent.mkdir(parents=True, exist_ok=True)
+              if p.suffix.lower() in {'.html', '.css'}:
+                  t = p.read_text(errors='ignore')
+                  t = href_src.sub(r'\1="' + BASE + '/', t)
+                  t = css_url.sub(r'url(\1' + BASE + '/', t)
+                  dst.write_text(t)
+              else:
+                  shutil.copy2(p, dst)
+          (OUT / '.nojekyll').write_text('')
+          print('assembled', sum(1 for _ in OUT.rglob("*")), 'entries into _site')
+          PY
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
